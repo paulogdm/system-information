@@ -5,7 +5,9 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "lerna run --parallel dev",
+    "start": "lerna run start",
+    "test": "lerna run test"
   },
   "workspaces": [
     "dashboard",
@@ -20,6 +22,7 @@
     "cz-gitmoji": "^0.0.7",
     "git-cz": "^1.7.1",
     "husky": "^1.2.0",
+    "lerna": "^3.5.1",
     "lint-staged": "^8.1.0",
     "prettier": "^1.15.3"
   },
