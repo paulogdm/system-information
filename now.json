@@ -4,12 +4,22 @@
   "public": true,
   "builds": [
     {
-      "src": "dashboard/next.config.js",
+      "src": "dashboard/package.json",
       "use": "@now/next"
     },
     {
-      "src": "graphql/index.js",
+      "src": "backend/*.js",
       "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dashboard/$1"
     }
   ]
 }
