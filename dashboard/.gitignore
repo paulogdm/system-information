@@ -1,0 +1,4 @@
+build/
+dist/
+.next/
+now-secrets.json

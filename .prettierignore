@@ -1,0 +1,7 @@
+node_modules/
+static/
+dist/
+.next/
+build/
+.firebase/
+package-lock.json

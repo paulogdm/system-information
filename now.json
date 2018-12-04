@@ -1,0 +1,15 @@
+{
+  "name": "system-information",
+  "version": 2,
+  "public": true,
+  "builds": [
+    {
+      "src": "dashboard/next.config.js",
+      "use": "@now/next"
+    },
+    {
+      "src": "graphql/index.js",
+      "use": "@now/node"
+    }
+  ]
+}
