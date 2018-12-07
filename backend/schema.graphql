@@ -3,9 +3,168 @@ type Mutation {
 }
 
 type Subscription {
-  time: String!
+  time: Time!
+  cpuSpeed: CpuCurrentSpeed!
+  cpuTemperature: CpuTemperature!
+  memory: Memory!
+  battery: Battery!
 }
 
 type Query {
-  hi: String!
+  time: Time!
+  system: System!
+  bios: Bios!
+  baseboard: Baseboard!
+  cpu: Cpu!
+  cpuCache: CpuCache!
+  cpuSpeed: CpuCurrentSpeed!
+  cpuTemperature: CpuTemperature!
+  memory: Memory!
+  memoryLayout: [MemorySlot!]!
+  diskLayout: [DiskSlot!]!
+  battery: Battery!
+  graphics: Graphics!
+}
+
+type Time {
+  current: Float!
+  uptime: Float!
+  timezone: String!
+  timezoneName: String
+}
+
+type System {
+  manufacturer: String!
+  model: String!
+  version: String!
+  serial: String
+  uuid: String
+  sku: String
+}
+
+type Bios {
+  vendor: String
+  version: String
+  releaseDate: String
+  revision: String
+}
+
+type Baseboard {
+  manufacturer: String!
+  model: String!
+  version: String!
+  serial: String
+  assetTag: String
+}
+
+type Cpu {
+  manufacturer: String!
+  brand: String!
+  speed: String
+  speedmin: String
+  speedmax: String
+  cores: String!
+  vendor: String!
+  family: String!
+  model: String
+  stepping: String
+  revision: String
+  voltage: String
+  cache: CpuCache
+}
+
+type CpuCache {
+  l1d: Int!
+  l1i: Int!
+  l2: Int!
+  l3: Int!
+}
+
+type CpuCurrentSpeed {
+  avg: Float!
+  min: Float
+  max: Float
+  cores: [Float!]!
+}
+
+type CpuTemperature {
+  main: Float!
+  cores: [Float!]!
+  max: Float
+}
+
+type Memory {
+  total: Float!
+  free: Float!
+  used: Float!
+  active: Float!
+  buffcache: Float
+  available: Float!
+  swaptotal: Float!
+  swapused: Float!
+  swapfree: Float!
+}
+
+type MemorySlot {
+  size: Float!
+  bank: String
+  type: String!
+  clockSpeed: Int!
+  formFactor: String
+  manufacturer: String!
+  partNum: String!
+  serialNum: String!
+  voltageConfigured: Int
+  voltageMin: Int
+  voltageMax: Int
+}
+
+type DiskSlot {
+  type: String
+  name: String
+  vendor: String
+  firmwareRevision: String
+  serialNum: String
+  size: Float
+  smartStatus: String
+}
+
+type Battery {
+  hasbattery: Boolean!
+  cyclecount: Int
+  ischarging: Boolean!
+  maxcapacity: Int
+  currentcapacity: Int
+  percent: Int!
+  timeremaining: Int
+  acconnected: Boolean!
+  type: String
+  model: String
+  manufacturer: String
+  serial: String
+}
+
+type GraphicController {
+  model: String!
+  vendor: String!
+  bus: String
+  vram: Int
+  vramDynamic: Boolean
+}
+
+type GraphicDisplay {
+  model: String!
+  main: Boolean!
+  builtin: Boolean!
+  connection: String
+  resolutionx: Int!
+  resolutiony: Int!
+  pixeldepth: Int
+  sizex: Int
+  sizey: Int
+}
+
+type Graphics {
+  controllers: [GraphicController!]!
+  displays: [GraphicDisplay!]!
 }

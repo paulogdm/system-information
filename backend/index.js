@@ -1,4 +1,5 @@
 const { GraphQLServer, PubSub } = require('graphql-yoga')
+const path = require('path')
 
 const Mutation = require('./resolvers/Mutation')
 const Query = require('./resolvers/Query')
@@ -9,20 +10,22 @@ const server = new GraphQLServer({
   resolvers: {
     Query,
     Mutation,
-    Subscription
+    Subscription,
   },
-  typeDefs: './schema.graphql',
+  typeDefs: path.join(__dirname, './schema.graphql'),
   resolverValidationOptions: {
     requireResolversForResolveType: false,
   },
   context: {
-    pubsub
-  }
+    pubsub,
+  },
 })
 
-server.start({
-  cors: true
-},
-deets => {
-  console.log(`Server is now running on port http:/localhost:${deets.port}`);
-})
+server.start(
+  {
+    cors: true,
+  },
+  deets => {
+    console.log(`Server is now running on port http:/localhost:${deets.port}`)
+  },
+)
