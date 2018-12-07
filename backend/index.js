@@ -1,17 +1,11 @@
 const { GraphQLServer, PubSub } = require('graphql-yoga')
 const path = require('path')
 
-const Mutation = require('./resolvers/Mutation')
-const Query = require('./resolvers/Query')
-const Subscription = require('./resolvers/Subscription')
+const resolvers = require('./resolvers')
 
 const pubsub = new PubSub()
 const server = new GraphQLServer({
-  resolvers: {
-    Query,
-    Mutation,
-    Subscription,
-  },
+  resolvers,
   typeDefs: path.join(__dirname, './schema.graphql'),
   resolverValidationOptions: {
     requireResolversForResolveType: false,

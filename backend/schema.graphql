@@ -119,8 +119,13 @@ type MemorySlot {
   voltageMax: Int
 }
 
+enum DiskType {
+  HD
+  SSD
+}
+
 type DiskSlot {
-  type: String
+  type: DiskType
   name: String
   vendor: String
   firmwareRevision: String

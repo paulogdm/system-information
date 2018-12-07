@@ -1,8 +1,8 @@
 const si = require('systeminformation')
 
 module.exports = {
-  async time() {
-    return await si.time()
+  time() {
+    return si.time()
   },
 
   async system() {
