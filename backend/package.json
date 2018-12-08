@@ -7,16 +7,18 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "Jaime Leonardo Suncin Cruz <leosuncin@gmail.com>",
   "license": "GPL-3.0",
   "dependencies": {
     "graphql-yoga": "^1.16.7",
+    "jest": "^23.6.0",
     "systeminformation": "^3.51.3"
   },
   "devDependencies": {
+    "easygraphql-tester": "^2.0.1",
     "nodemon": "^1.18.7"
   }
 }

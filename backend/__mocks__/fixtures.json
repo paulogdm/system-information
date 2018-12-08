@@ -1,0 +1,139 @@
+{
+  "time": {
+    "current": 1544215563931,
+    "uptime": 100620,
+    "timezone": "GMT-0600",
+    "timezoneName": "hora estándar central"
+  },
+  "system": {
+    "manufacturer": "MSI",
+    "model": "MS-7823",
+    "version": "1.0",
+    "serial": "023092",
+    "uuid": "261e82c8-4144-e311-a14a-201a067a5f4e",
+    "sku": "ABCP2P"
+  },
+  "bios": {
+    "vendor": "MSI",
+    "version": "1.50",
+    "releaseDate": "2010-11-22",
+    "revision": "1.50"
+  },
+  "baseboard": {
+    "manufacturer": "MSI",
+    "model": "ACMAA",
+    "version": "1.00",
+    "serial": "*",
+    "assetTag": "*"
+  },
+  "cpu": {
+    "manufacturer": "Intel",
+    "brand": "Core i5",
+    "vendor": "GenuineIntel",
+    "family": "6",
+    "model": "69",
+    "stepping": "1",
+    "revision": "",
+    "voltage": "",
+    "speed": "1.60",
+    "speedmin": "0.80",
+    "speedmax": "2.60",
+    "cores": 4,
+    "cache": { "l1d": 32768, "l1i": 32768, "l2": 262144, "l3": 3145728 }
+  },
+  "cpuCache": { "l1d": 32768, "l1i": 32768, "l2": 262144, "l3": 3145728 },
+  "cpuCurrentspeed": {
+    "min": 1.12,
+    "max": 1.19,
+    "avg": 1.16,
+    "cores": [1.19, 1.19, 1.14, 1.12]
+  },
+  "cpuTemperature": { "main": 49, "cores": [48, 47], "max": 49 },
+  "mem": {
+    "total": 6161227776,
+    "free": 158875648,
+    "used": 6002352128,
+    "active": 3334057984,
+    "available": 2374242304,
+    "buffcache": 2668294144,
+    "swaptotal": 6354366464,
+    "swapused": 171106304,
+    "swapfree": 5179748352
+  },
+  "memLayout": [
+    {
+      "size": 4294967296,
+      "bank": "BANK 0",
+      "type": "DDR3",
+      "clockSpeed": 1600,
+      "formFactor": "SODIMM",
+      "manufacturer": "Samsung",
+      "partNum": "M471B5173BH0-YK0",
+      "serialNum": "366CC17A",
+      "voltageConfigured": -1,
+      "voltageMin": -1,
+      "voltageMax": -1
+    },
+    {
+      "size": 0,
+      "bank": "BANK 1",
+      "type": "Empty",
+      "clockSpeed": 0,
+      "formFactor": "DIMM",
+      "partNum": "",
+      "serialNum": "",
+      "voltageConfigured": -1,
+      "voltageMin": -1,
+      "voltageMax": -1
+    }
+  ],
+  "diskLayout": [
+    {
+      "type": "HD",
+      "name": "Toshiba",
+      "vendor": "String",
+      "firmwareRevision": "1.0",
+      "serialNum": "*",
+      "size": 382980664,
+      "smartStatus": "Good"
+    }
+  ],
+  "battery": {
+    "hasbattery": true,
+    "cyclecount": 0,
+    "ischarging": false,
+    "maxcapacity": 4450000,
+    "currentcapacity": 588000,
+    "percent": 35,
+    "timeremaining": 36,
+    "acconnected": false,
+    "type": "Li-ion",
+    "model": "ABABA55AA5",
+    "manufacturer": "TOSHIBA",
+    "serial": "0000000000000471"
+  },
+  "graphics": {
+    "controllers": [
+      {
+        "vendor": "Intel Corporation",
+        "model": "Integrated Graphics Controller ",
+        "bus": "",
+        "vram": 256,
+        "vramDynamic": false
+      }
+    ],
+    "displays": [
+      {
+        "connection": "eDP-1",
+        "main": true,
+        "builtin": true,
+        "model": "",
+        "resolutionx": 1366,
+        "resolutiony": 768,
+        "sizex": 310,
+        "sizey": 174,
+        "pixeldepth": 24
+      }
+    ]
+  }
+}
