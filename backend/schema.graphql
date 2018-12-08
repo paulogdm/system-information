@@ -24,6 +24,8 @@ type Query {
   diskLayout: [DiskSlot!]!
   battery: Battery!
   graphics: Graphics!
+  osInfo: OsInfo!
+  osVersions: OsVersions!
 }
 
 type Time {
@@ -172,4 +174,37 @@ type GraphicDisplay {
 type Graphics {
   controllers: [GraphicController!]!
   displays: [GraphicDisplay!]!
+}
+
+type OsInfo {
+  platform: String!
+  distro: String!
+  release: String!
+  codename: String
+  kernel: String
+  arch: String!
+  hostname: String!
+  logofile: String!
+  serial: String
+  build: String
+}
+
+type OsVersions {
+  kernel: String
+  openssl: String
+  systemOpenssl: String
+  systemOpensslLib: String
+  node: String
+  v8: String
+  npm: String
+  yarn: String
+  git: String
+  mysql: String
+  redis: String
+  mongodb: String
+  nginx: String
+  php: String
+  docker: String
+  postfix: String
+  postgresql: String
 }

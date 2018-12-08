@@ -135,5 +135,40 @@
         "pixeldepth": 24
       }
     ]
+  },
+  "osInfo": {
+    "platform": "linux",
+    "distro": "ManjaroLinux",
+    "release": "18.0.0",
+    "codename": "Illyria",
+    "kernel": "4.19.6-1-MANJARO",
+    "arch": "x64",
+    "hostname": "shyuu-pc",
+    "logofile": "manjaro",
+    "serial": "",
+    "build": ""
+  },
+  "versions": {
+    "kernel": "4.19.6-1-MANJARO",
+    "openssl": "1.1.1",
+    "systemOpenssl": "1.1.1a",
+    "systemOpensslLib": "OpenSSL",
+    "node": "11.3.0",
+    "v8": "7.0.276.38-node.11",
+    "npm": "6.4.1",
+    "yarn": "1.12.3",
+    "pm2": "",
+    "gulp": "",
+    "grunt": "",
+    "git": "2.19.2",
+    "tsc": "",
+    "mysql": "",
+    "redis": "",
+    "mongodb": "",
+    "nginx": "",
+    "php": "7.2.12",
+    "docker": "18.09.0-ce",
+    "postfix": "",
+    "postgresql": ""
   }
 }

@@ -233,7 +233,7 @@ describe('Validate system schema', () => {
   })
 })
 
-describe('Test GraphQL queries', () => {
+describe("Test GraphQL system's queries", () => {
   test('Should resolve dashboard query', async () => {
     const query = `query {
       time {

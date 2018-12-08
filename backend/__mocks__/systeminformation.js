@@ -40,4 +40,10 @@ module.exports = {
   graphics() {
     return Promise.resolve(fixtures.graphics)
   },
+  osInfo() {
+    return Promise.resolve(fixtures.osInfo)
+  },
+  versions() {
+    return Promise.resolve(fixtures.versions)
+  },
 }

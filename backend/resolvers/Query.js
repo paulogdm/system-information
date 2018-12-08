@@ -52,4 +52,12 @@ module.exports = {
   async graphics() {
     return await si.graphics()
   },
+
+  async osInfo() {
+    return await si.osInfo()
+  },
+
+  async osVersions() {
+    return await si.versions()
+  },
 }
