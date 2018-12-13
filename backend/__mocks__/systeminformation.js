@@ -46,4 +46,16 @@ module.exports = {
   versions() {
     return Promise.resolve(fixtures.versions)
   },
+  fsSize() {
+    return Promise.resolve(fixtures.fsSize)
+  },
+  blockDevices() {
+    return Promise.resolve(fixtures.blockDevices)
+  },
+  fsStats() {
+    return Promise.resolve(fixtures.fsStats)
+  },
+  disksIO() {
+    return Promise.resolve(fixtures.disksIO)
+  },
 }

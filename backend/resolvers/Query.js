@@ -60,4 +60,20 @@ module.exports = {
   async osVersions() {
     return await si.versions()
   },
+
+  async fs() {
+    return await si.fsSize()
+  },
+
+  async blockDevices() {
+    return await si.blockDevices()
+  },
+
+  async fsStats() {
+    return await si.fsStats()
+  },
+
+  async diskIO() {
+    return await si.disksIO()
+  },
 }

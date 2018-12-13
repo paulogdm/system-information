@@ -1,21 +1,6 @@
-const EasyGraphQLTester = require('easygraphql-tester')
-const { makeExecutableSchema } = require('graphql-tools')
-const { graphql } = require('graphql')
-const fs = require('fs')
-const path = require('path')
+const { fixtures, graphql, schema, tester } = require('./init')
 
-const resolvers = require('../resolvers')
-const fixtures = require('../__mocks__/fixtures.json')
-
-const typeDefs = fs.readFileSync(
-  path.join(__dirname, '..', 'schema.graphql'),
-  'utf8',
-)
-const schema = makeExecutableSchema({ typeDefs, resolvers })
-
-describe('Validate system schema', () => {
-  let tester = new EasyGraphQLTester(typeDefs)
-
+describe('Validate OS schema', () => {
   const cases = [
     {
       id: 'osInfo',
@@ -67,8 +52,8 @@ describe('Validate system schema', () => {
   })
 })
 
-describe("Test GraphQL os's queries", () => {
-  test("Should resolve os's query", async () => {
+describe("Test GraphQL OS's queries", () => {
+  test("Should resolve OS's query", async () => {
     const query = `query {
       osInfo {
         platform

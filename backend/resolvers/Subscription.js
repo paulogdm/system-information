@@ -86,4 +86,37 @@ module.exports = {
       return ctx.pubsub.asyncIterator(channel)
     },
   },
+
+  fsStats: {
+    subscribe(parent, args, ctx) {
+      const channel = 'FS_STATS_CHANNEL'
+
+      setInterval(
+        () =>
+          si
+            .fsStats()
+            .then(fsStats => ctx.pubsub.publish(channel, { fsStats }))
+            .catch(console.error),
+        INTERVAL,
+      )
+
+      return ctx.pubsub.asyncIterator(channel)
+    },
+  },
+  diskIO: {
+    subscribe(parent, args, ctx) {
+      const channel = 'DISK_IO_CHANNEL'
+
+      setInterval(
+        () =>
+          si
+            .disksIO()
+            .then(disksIO => ctx.pubsub.publish(channel, { disksIO }))
+            .catch(console.error),
+        INTERVAL,
+      )
+
+      return ctx.pubsub.asyncIterator(channel)
+    },
+  },
 }

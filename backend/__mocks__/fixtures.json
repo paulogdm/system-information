@@ -170,5 +170,99 @@
     "docker": "18.09.0-ce",
     "postfix": "",
     "postgresql": ""
+  },
+  "fsSize": [
+    {
+      "fs": "/dev/sda6",
+      "type": "ext4",
+      "size": 392172199936,
+      "used": 308434305024,
+      "use": 78.65,
+      "mount": "/"
+    },
+    {
+      "fs": "/dev/sda2",
+      "type": "vfat",
+      "size": 268435456,
+      "used": 63078400,
+      "use": 23.5,
+      "mount": "/boot/efi"
+    }
+  ],
+  "blockDevices": [
+    {
+      "name": "sda",
+      "type": "disk",
+      "fstype": "",
+      "mount": "",
+      "size": 750156374016,
+      "physical": "HDD",
+      "uuid": "",
+      "label": "",
+      "model": "Hitachi",
+      "serial": "J2190020DAXNZC",
+      "removable": false,
+      "protocol": "sata"
+    },
+    {
+      "name": "sda1",
+      "type": "part",
+      "fstype": "vfat",
+      "mount": "/boot/efi",
+      "size": 272629760,
+      "physical": "",
+      "uuid": "44DA-8694",
+      "label": "",
+      "model": "",
+      "serial": "",
+      "removable": false,
+      "protocol": ""
+    },
+    {
+      "name": "sda2",
+      "type": "part",
+      "fstype": "ext4",
+      "mount": "/",
+      "size": 399516893184,
+      "physical": "",
+      "uuid": "0b8ee324-1a1a-4ea1-ab02-1697debf793d",
+      "label": "",
+      "model": "",
+      "serial": "",
+      "removable": false,
+      "protocol": ""
+    },
+    {
+      "name": "sda3",
+      "type": "part",
+      "fstype": "swap",
+      "mount": "[SWAP]",
+      "size": 6354370560,
+      "physical": "",
+      "uuid": "d6bcf468-1e88-4c2c-b8cc-616a9646abd4",
+      "label": "",
+      "model": "",
+      "serial": "",
+      "removable": false,
+      "protocol": ""
+    }
+  ],
+  "fsStats": {
+    "rx": 76096004608,
+    "wx": 37633807360,
+    "tx": 113729811968,
+    "rx_sec": 0,
+    "wx_sec": 948726.7683772539,
+    "tx_sec": 948726.7683772539,
+    "ms": 721
+  },
+  "disksIO": {
+    "rIO": 1551379,
+    "wIO": 714468,
+    "tIO": 2265847,
+    "rIO_sec": 9.54328561690525,
+    "wIO_sec": 27.266530334015,
+    "tIO_sec": 36.809815950920246,
+    "ms": 7335
   }
 }

@@ -8,6 +8,8 @@ type Subscription {
   cpuTemperature: CpuTemperature!
   memory: Memory!
   battery: Battery!
+  fsStats: FsStats!
+  diskIO: DiskIO!
 }
 
 type Query {
@@ -26,6 +28,10 @@ type Query {
   graphics: Graphics!
   osInfo: OsInfo!
   osVersions: OsVersions!
+  fs: [Filesystem!]!
+  blockDevices: [BlockDevice!]!
+  fsStats: FsStats!
+  diskIO: DiskIO!
 }
 
 type Time {
@@ -207,4 +213,48 @@ type OsVersions {
   docker: String
   postfix: String
   postgresql: String
+}
+
+type Filesystem {
+  fs: String!
+  type: String!
+  size: Float!
+  used: Float!
+  use: Float!
+  mount: String!
+}
+
+type BlockDevice {
+  name: String
+  type: String
+  fstype: String
+  mount: String
+  size: Float
+  physical: String
+  uuid: String
+  label: String
+  model: String
+  serial: String
+  removable: Boolean
+  protocol: String
+}
+
+type FsStats {
+  rx: Float
+  wx: Float
+  tx: Float
+  rx_sec: Float
+  wx_sec: Float
+  tx_sec: Float
+  ms: Int
+}
+
+type DiskIO {
+  rIO: Float
+  wIO: Float
+  tIO: Float
+  rIO_sec: Float
+  wIO_sec: Float
+  tIO_sec: Float
+  ms: Int
 }
