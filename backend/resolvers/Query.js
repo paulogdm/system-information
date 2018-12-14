@@ -76,4 +76,20 @@ module.exports = {
   async diskIO() {
     return await si.disksIO()
   },
+
+  async netIfaces() {
+    return await si.networkInterfaces()
+  },
+
+  async netIfaceDefault() {
+    return await si.networkInterfaceDefault()
+  },
+
+  async netStats(parent, args) {
+    return await si.networkStats(args.iface)
+  },
+
+  async netConns() {
+    return await si.networkConnections()
+  },
 }

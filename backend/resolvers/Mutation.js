@@ -1,5 +1,10 @@
+const si = require('systeminformation')
+
 module.exports = {
-  greet(parent, args, ctx, info) {
-    return `Hi ${args.name}`
-  }
+  async checkSite(parent, { url }) {
+    return si.inetChecksite(url)
+  },
+  async latencyHost(parent, { host }) {
+    return si.inetLatency(host)
+  },
 }

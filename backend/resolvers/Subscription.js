@@ -119,4 +119,21 @@ module.exports = {
       return ctx.pubsub.asyncIterator(channel)
     },
   },
+  netStats: {
+    subscribe(parent, args, ctx) {
+      const { iface } = args
+      const channel = `NETWORK_STATS_${iface}`
+
+      setInterval(
+        () =>
+          si
+            .networkStats(iface)
+            .then(networkStats => ctx.pubsub.publish(channel, { networkStats }))
+            .catch(console.error),
+        INTERVAL,
+      )
+
+      return ctx.pubsub.asyncIterator(channel)
+    },
+  },
 }

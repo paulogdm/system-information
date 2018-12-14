@@ -264,5 +264,73 @@
     "wIO_sec": 27.266530334015,
     "tIO_sec": 36.809815950920246,
     "ms": 7335
-  }
+  },
+  "networkInterfaces": [
+    {
+      "iface": "lo",
+      "ip4": "127.0.0.1",
+      "ip6": "",
+      "mac": "",
+      "internal": true
+    },
+    {
+      "iface": "eth0",
+      "ip4": "192.168.0.2",
+      "ip6": "",
+      "mac": "38:f2:20:ed:ee:40",
+      "internal": false
+    }
+  ],
+  "networkInterfaceDefault": "eth0",
+  "networkStats": {
+    "iface": "eth0",
+    "operstate": "up",
+    "rx": 17006575164,
+    "tx": 3055402284,
+    "rx_sec": 189491.72566017453,
+    "tx_sec": 13922.929127734766,
+    "ms": 87439
+  },
+  "networkConnections": [
+    {
+      "protocol": "tcp",
+      "localaddress": "0.0.0.0",
+      "localport": "139",
+      "peeraddress": "0.0.0.0",
+      "peerport": "*",
+      "state": "LISTEN"
+    },
+    {
+      "protocol": "tcp",
+      "localaddress": "0.0.0.0",
+      "localport": "22",
+      "peeraddress": "0.0.0.0",
+      "peerport": "41212",
+      "state": "ESTABLISHED"
+    },
+    {
+      "protocol": "tcp",
+      "localaddress": "0.0.0.0",
+      "localport": "55116",
+      "peeraddress": "0.0.0.0",
+      "peerport": "443",
+      "state": "CLOSE_WAIT"
+    },
+    {
+      "protocol": "tcp6",
+      "localaddress": "::",
+      "localport": "6600",
+      "peeraddress": "::",
+      "peerport": "*",
+      "state": "LISTEN"
+    },
+    {
+      "protocol": "udp",
+      "localaddress": "0.0.0.0",
+      "localport": "59394",
+      "peeraddress": "0.0.0.0",
+      "peerport": "53",
+      "state": "ESTABLISHED"
+    }
+  ]
 }

@@ -1,5 +1,6 @@
 type Mutation {
-  greet(name: String): String!
+  checkSite(url: String!): SiteStatus!
+  latencyHost(host: String!): Float!
 }
 
 type Subscription {
@@ -10,6 +11,7 @@ type Subscription {
   battery: Battery!
   fsStats: FsStats!
   diskIO: DiskIO!
+  netStats(iface: String): NetworkStats!
 }
 
 type Query {
@@ -32,6 +34,10 @@ type Query {
   blockDevices: [BlockDevice!]!
   fsStats: FsStats!
   diskIO: DiskIO!
+  netIfaces: [NetworkInterface!]!
+  netIfaceDefault: String!
+  netStats(iface: String): NetworkStats!
+  netConns: [NetworkConnection!]!
 }
 
 type Time {
@@ -257,4 +263,81 @@ type DiskIO {
   wIO_sec: Float
   tIO_sec: Float
   ms: Int
+}
+
+type NetworkInterface {
+  iface: String!
+  ip4: String!
+  ip6: String!
+  mac: String!
+  internal: Boolean!
+}
+
+type NetworkStats {
+  iface: String!
+  operstate: String!
+  rx: Float!
+  tx: Float!
+  rx_sec: Float!
+  tx_sec: Float!
+  ms: Int
+}
+
+enum ConnectionState {
+  """
+  Indicates active open.
+  """
+  SYN_SEND
+  """
+  Server just received SYN from the client.
+  """
+  SYN_RECEIVED
+  """
+  Client received server's SYN and session is established.
+  """
+  ESTABLISHED
+  """
+  Server is ready to accept connection.
+  """
+  LISTEN
+  """
+  Indicates active close.
+  """
+  FIN_WAIT_1
+  """
+  Client enters this state after active close.
+  """
+  TIMED_WAIT
+  """
+  Indicates passive close. Server just received first FIN from a client.
+  """
+  CLOSE_WAIT
+  """
+  Client just received acknowledgment of its first FIN from the server.
+  """
+  FIN_WAIT_2
+  """
+  Server is in this state when it sends its own FIN.
+  """
+  LAST_ACK
+  """
+  Server received ACK from client and connection is closed.
+  """
+  CLOSED
+}
+
+type NetworkConnection {
+  protocol: String!
+  localaddress: String!
+  localport: String!
+  peeraddress: String!
+  peerport: String!
+  state: ConnectionState!
+}
+
+type SiteStatus {
+  url: String
+  ok: String!
+  status: Int!
+  ms: Float!
 }

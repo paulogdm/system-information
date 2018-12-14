@@ -58,4 +58,27 @@ module.exports = {
   disksIO() {
     return Promise.resolve(fixtures.disksIO)
   },
+  networkInterfaces() {
+    return Promise.resolve(fixtures.networkInterfaces)
+  },
+  networkInterfaceDefault() {
+    return Promise.resolve(fixtures.networkInterfaceDefault)
+  },
+  networkStats(iface = 'eth0') {
+    return Promise.resolve({ ...fixtures.networkStats, iface })
+  },
+  networkConnections() {
+    return Promise.resolve(fixtures.networkConnections)
+  },
+  inetChecksite(url) {
+    return Promise.resolve({
+      url,
+      ok: 'true',
+      status: 200,
+      ms: 100,
+    })
+  },
+  inetLatency(host) {
+    return Promise.resolve(host.length)
+  },
 }
