@@ -103,6 +103,7 @@ module.exports = {
       return ctx.pubsub.asyncIterator(channel)
     },
   },
+
   diskIO: {
     subscribe(parent, args, ctx) {
       const channel = 'DISK_IO_CHANNEL'
@@ -119,6 +120,7 @@ module.exports = {
       return ctx.pubsub.asyncIterator(channel)
     },
   },
+
   netStats: {
     subscribe(parent, args, ctx) {
       const { iface } = args
@@ -129,6 +131,93 @@ module.exports = {
           si
             .networkStats(iface)
             .then(networkStats => ctx.pubsub.publish(channel, { networkStats }))
+            .catch(console.error),
+        INTERVAL,
+      )
+
+      return ctx.pubsub.asyncIterator(channel)
+    },
+  },
+
+  cpuLoad: {
+    subscribe(parent, args, ctx) {
+      const channel = 'CPU_LOAD'
+
+      setInterval(
+        () =>
+          si
+            .currentLoad()
+            .then(cpuLoad => ctx.pubsub.publish(channel, { cpuLoad }))
+            .catch(console.error),
+        INTERVAL,
+      )
+
+      return ctx.pubsub.asyncIterator(channel)
+    },
+  },
+
+  load: {
+    subscribe(parent, args, ctx) {
+      const channel = 'LOAD'
+
+      setInterval(
+        () =>
+          si
+            .fullLoad()
+            .then(load => ctx.pubsub.publish(channel, { load }))
+            .catch(console.error),
+        INTERVAL,
+      )
+
+      return ctx.pubsub.asyncIterator(channel)
+    },
+  },
+
+  processes: {
+    subscribe(parent, args, ctx) {
+      const channel = 'PROCESSES'
+
+      setInterval(
+        () =>
+          si
+            .processes()
+            .then(processes => ctx.pubsub.publish(channel, { processes }))
+            .catch(console.error),
+        INTERVAL,
+      )
+
+      return ctx.pubsub.asyncIterator(channel)
+    },
+  },
+
+  processLoad: {
+    subscribe(parent, args, ctx) {
+      const { process: proc } = args
+      const channel = `PROCESS_${proc}`
+
+      setInterval(
+        () =>
+          si
+            .processLoad(proc)
+            .then(processLoad => ctx.pubsub.publish(channel, { processLoad }))
+            .catch(console.error),
+        INTERVAL,
+      )
+
+      return ctx.pubsub.asyncIterator(channel)
+    },
+  },
+
+  serviceLoad: {
+    subscribe(parent, args, ctx) {
+      const { service } = args
+      const channel = `PROCESS_${service}`
+
+      setInterval(
+        () =>
+          si
+            .services(service)
+            .then(serviceLoad => ctx.pubsub.publish(channel, { serviceLoad }))
             .catch(console.error),
         INTERVAL,
       )

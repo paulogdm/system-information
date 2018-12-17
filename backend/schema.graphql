@@ -1,3 +1,5 @@
+scalar DateUnix
+
 type Mutation {
   checkSite(url: String!): SiteStatus!
   latencyHost(host: String!): Float!
@@ -12,6 +14,11 @@ type Subscription {
   fsStats: FsStats!
   diskIO: DiskIO!
   netStats(iface: String): NetworkStats!
+  cpuLoad: CpuLoad!
+  load: Float!
+  processes: ProcessList!
+  processLoad(process: String!): ProcessLoad!
+  serviceLoad(service: String!): [Service!]!
 }
 
 type Query {
@@ -340,4 +347,141 @@ type SiteStatus {
   ok: String!
   status: Int!
   ms: Float!
+}
+
+type CoreLoad {
+  """Core load in %"""
+  load: Float!
+  """Core load user in %"""
+  load_user: Float!
+  """Core load system in %"""
+  load_system: Float!
+  """Core load nice in %"""
+  load_nice: Float!
+  """Core load idle in %"""
+  load_idle: Float!
+  """Core load interrupt request in %"""
+  load_irq: Float!
+  """Core load in raw values (ticks)"""
+  raw_load: Float!
+  """Core load user in raw values (ticks)"""
+  raw_load_user: Float!
+  """Core load system in raw values (ticks)"""
+  raw_load_system: Float!
+  """Core load nice in raw values (ticks)"""
+  raw_load_nice: Float!
+  """Core load idle in raw values (ticks)"""
+  raw_load_idle: Float!
+  """Core load interrupt request in raw values (ticks)"""
+  raw_load_irq: Float!
+}
+
+"""CPU Load."""
+type CpuLoad {
+  """CPU average load."""
+  avgload: Float!
+  """CPU load in %"""
+  currentload: Float!
+  """CPU load user in %"""
+  currentload_user: Float!
+  """CPU load system in %"""
+  currentload_system: Float!
+  """CPU load nice in %"""
+  currentload_nice: Float!
+  """CPU load idle in %"""
+  currentload_idle: Float!
+  """CPU load interrupt request in %"""
+  currentload_irq: Float!
+  """CPU load in raw values (ticks)"""
+  raw_currentload: Float!
+  """CPU load user in raw values (ticks)"""
+  raw_currentload_user: Float!
+  """CPU load system in raw values (ticks)"""
+  raw_currentload_system: Float!
+  """CPU load nice in raw values (ticks)"""
+  raw_currentload_nice: Float!
+  """CPU load idle in raw values (ticks)"""
+  raw_currentload_idle: Float!
+  """CPU load interrupt request in raw values (ticks)"""
+  raw_currentload_irq: Float!
+  """current loads per CPU in % + raw ticks"""
+  cpus: [CoreLoad!]!
+}
+
+"""Process details."""
+type Process {
+  """Process PID"""
+  pid: Int!
+  """Parent process PID"""
+  parentPid: Int!
+  """Process name"""
+  name: String!
+  """Process % CPU usage"""
+  pcpu: Float!
+  """Process % CPU usage (user)"""
+  pcpuu: Float
+  """Process % CPU usage (system)"""
+  pcpus: Float
+  """Process memory %"""
+  pmem: Float
+  """Process priotity"""
+  priority: Int
+  """Process virtual memory size"""
+  mem_vsz: Float!
+  """Process mem resident set size"""
+  mem_rss: Float!
+  """Process nice value"""
+  nice: Int
+  """Process start time"""
+  started: DateUnix
+  """Process state"""
+  state: String!
+  """TTY from which process was started"""
+  tty: String
+  """User who started process"""
+  user: String
+  """Process starting command"""
+  command: String!
+}
+
+"""Running processes."""
+type ProcessList {
+  """All processes."""
+  all: Int!
+  """All processes running."""
+  running: Int!
+  """All processes blocked."""
+  blocked: Int!
+  """All processes sleeping."""
+  sleeping: Int!
+  """All processes unknown status"""
+  unknown: Int!
+  """List of all processes incl. details"""
+  list: [Process!]!
+}
+
+"""Detailed information about given process."""
+type ProcessLoad {
+  """Process name"""
+  proc: String!
+  """PID"""
+  pid: Int!
+  """PID children"""
+  pids: [Int!]!
+  """Process % CPU"""
+  cpu: Float!
+  """Process % MEM"""
+  mem: Float!
+}
+
+type Service {
+  """Name of service"""
+  name: String!
+  running: Boolean!
+  startmode: String
+  pids: [String!]
+  """Process % CPU"""
+  pcpu: Float!
+  """Process % MEM"""
+  pmem: Float!
 }
