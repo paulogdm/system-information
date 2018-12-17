@@ -5,14 +5,22 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Inspect jest (backend)",
+      "name": "Inspect jest tests",
       "type": "node",
       "request": "launch",
       "program": "${workspaceRoot}/node_modules/.bin/jest",
       "args": ["--runInBand"],
-      "cwd": "${workspaceFolder}/backend",
-      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}/${input:pickPackage}",
       "internalConsoleOptions": "neverOpen"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "pickPackage",
+      "description": "Select backend or dashboard",
+      "type": "pickString",
+      "options": ["backend", "dashboard"],
+      "default": "backend"
     }
   ]
 }
